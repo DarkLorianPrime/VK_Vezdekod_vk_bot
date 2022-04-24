@@ -65,3 +65,4 @@ class CommandHandler:
                                       payload=load.get(button), conversation_message_id=raw.conversation_message_id,
                                       raw=raw)
             return
+        return True
