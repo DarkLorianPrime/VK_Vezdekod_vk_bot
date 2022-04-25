@@ -49,6 +49,8 @@ for vk_object in VKLongPoll().listen():
         if not CommandHandler().check_updates(vk_object):
             continue
         player = Player.select().where(Player.user_id == vk_object.from_id).first()
+        if player is None:
+            continue
         if player.voted:
             vk.messages.send(**send_id, message="Вы не можете больше участвовать в этом раунде!", random_id=0)
             continue
