@@ -61,7 +61,7 @@ for vk_object in VKLongPoll().listen():
         need_id = Game.select().where(Game.id == game_id).first().need_id
         if str(need_id) == vk_object.text.lower():
             vk.messages.send(**send_id, message="Совершенно верно!\n +3 балла этому господину!", random_id=0)
-            if player.balls + 3 < 5:
+            if player.balls + 3 < 40:
                 player.balls += 3
                 player.voted = True
                 player.save()
